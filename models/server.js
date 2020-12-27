@@ -15,7 +15,10 @@ class Server {
         // HTTP server
         this.server = http.createServer(this.app)
         // configuracion del socket server
-        this.io = socketIo(this.server,{/*configuraciones*/});
+        this.io = socketIo(this.server,{cors: {
+            origin: "*",
+            methods: ["GET","POST"]
+        }}/*configuraciones*/);
     }
 
     middlewares(){
